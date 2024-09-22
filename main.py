@@ -42,6 +42,8 @@ Aqui está uma lista de respostas rotineiras, sobre o nosso negócio ou sobre os
 {best_practice}
 
 Escreva a melhor resposta que eu deveria enviar para meu potencial cliente.
+
+Caso não encontre a resposta ideal, responda: 'Desculpe, mas eu não sou capaz de lhe dar essa resposta!'
 """
 
 prompt = PromptTemplate(
