@@ -20,7 +20,7 @@ def retrieve_info(query):
     similar_response = db.similarity_search(query, k=3)
     return [doc.page_content for doc in similar_response]
 
-llm = ChatOpenAI(temperature=0, model="gpt-3.5-turbo")
+llm = ChatOpenAI(temperature=0, model="gpt-4o")
 
 template = """
 
@@ -42,8 +42,9 @@ Aqui está uma lista de respostas rotineiras, sobre o nosso negócio ou sobre os
 {best_practice}
 
 Escreva a melhor resposta que eu deveria enviar para meu potencial cliente.
-
-Caso não encontre a resposta ideal, responda: 'Desculpe, mas eu não sou capaz de lhe dar essa resposta!'
+<importante>
+Limite-se a responder utilizando a base de dados.
+Caso não encontre a resposta na base de dados, responda: 'Desculpe, mas eu não sou capaz de lhe dar essa resposta!'
 """
 
 prompt = PromptTemplate(
@@ -70,7 +71,7 @@ def main():
     st.set_page_config(
         page_title="Assistente Comercial"
     )
-    st.header("Étika Soluções - Assistente Comercial")
+    st.header("Contabilidade para Igrejas - Assistente Comercial :moneybag:" )
     message = st.text_area("Pergunta:")
 
     if message:
